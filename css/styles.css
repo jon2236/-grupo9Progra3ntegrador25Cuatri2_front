@@ -86,7 +86,7 @@ h4 {
 
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 15px;
     text-align:center;
 }
@@ -102,10 +102,14 @@ h4 {
     color: white;
 }
 
-.card-product img {
-    width: 300px;
-    height: 300px;
+.card-products img {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: contain; /* Mantiene proporción sin recortar */
     border-radius: 8px;
-    background-color: lemonchiffon;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 1rem;
 }
 
