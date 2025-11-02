@@ -1,4 +1,7 @@
 
+let url = "http://localhost:3500";
+
+
 //ejercicio 2. imprimir datos de obj alumno y mostrarlo por consola y html. 
 
 const alumno = {dni: 22222222, nombre: "jonatan", apellido: "quiroga"}
@@ -7,27 +10,44 @@ const userInfo = document.getElementById("user-info-span")
 
 function imprimirDatosAlumno() { //una simple funcion q printea lo q quiero concatenado con backticks
     userInfo.textContent = `${alumno.nombre} ${alumno.apellido}`
-    console.log(`nombre ${alumno.nombre} apellido ${alumno.apellido}`)
 }
 
-//ejercicio 3. implementar una funcion q imprima los productos frutas del array de obj
+//ejercicio 3. implementar una funcion q traiga data desde mi backend
 
 const productList = document.getElementById("product-list")
 
-function renderProducts(items) {
-    productList.innerHTML = ""  //limpio el contenido actual del contenedor de productos.
-    if(items.length === 0) {
-        productList.innerHTML = "<div class='no-products'><p>no hay productos disponibles</p></div>"
+async function obtenerProductos() {
+    try {
+        let response = await fetch(`${url}/productos`);
+        
+        let data = await response.json()
+
+        console.log(data);
+        let productos = data.payload;
+        console.log(productos);
+
+        mostrarProductos(productos);
+
+    } catch (error) {
+        console.error("error obteniendo productos: ", error);
     }
-    items.forEach(item => {  //itero sobre cada item del array para generar e inyectar el html. la idea es generar html dinamico en el cual puedo tener un array con 1000 cosas y esto me resolveria el problema.
-        productList.innerHTML += // la cable es innerhtml
-        `<div class="card-product">
-            <img src="${item.img}" alt="${item.nombre}"/>
-            <h3>${item.nombre}</h3>
-            <p>${item.precio}</p>
-            <button onclick="addToCart(${item.id})">agregar al carrito</button>
-        </div>`
-    })
+}
+
+function mostrarProductos(array) {
+    let htmlProductos = "";
+
+    array.forEach(prod => {
+        htmlProductos += `
+            <div class="card-products">
+                <img src="${url}/uploads/${prod.imagen}" alt="${prod.nombre}">
+                <h3>${prod.nombre}</h3>
+                <p> id: ${prod.id}</p>
+                <p>${prod.precio}</p>
+            </div>
+        `;
+    });
+
+    productList.innerHTML = htmlProductos;
 }
 
 // ejercicio 4 funcion de filtro con input
@@ -97,9 +117,9 @@ resetButton.addEventListener("click", resetCart);
 
 function init() {
 
-    mostrarCarrito();
-    renderProducts(frutas)
     imprimirDatosAlumno()
+    mostrarCarrito();
+    obtenerProductos()
 }
 
 init()
