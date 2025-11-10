@@ -1,56 +1,15 @@
+@import "./navbar.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
     background-color: #18181a;
     color: rgb(248, 246, 246);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-header {
-    display: flex;
-    width: 100%;
-}
-
-nav {
-    background-color: rgb(60, 61, 60);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.logo-link {
-    display: flex;
-    margin-right: 10rem;
-    margin-left: 2rem;
-    align-items: center;
-}
-
-.nav-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-bot-ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-}
-
-.nav-bot-ul li a {
-    text-decoration: none;
-    font-weight: bolder;
-    color:rgb(124, 124, 225);
-    font-size: 1.5rem;
-}
-
-#user-info {
-    border: 2px solid rgb(41, 0, 0) ;
-    padding: 6px;
-    border-radius: 8px;
-    color: rgb(248, 250, 250);
-}
-
-#user-info-span {
-    color: rgb(255, 0, 0);
 }
 
 h1 {
@@ -116,17 +75,6 @@ h4 {
     margin-bottom: 1rem;
 }
 
-#cart-counter {
-    border: 2px solid rgb(41, 0, 0) ;
-    margin-right: 10px;
-    padding: 6px;
-    border-radius: 8px;
-    color: rgb(255, 255, 255);
-}
-
-#cart-counter-span {
-    color: rgb(255, 0, 0);
-}
 
 #cart-section {
     background-color:rgb(60, 61, 60);
