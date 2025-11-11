@@ -79,8 +79,7 @@ function mostrarProductos(array) {
 
 
 
-// ejercicio 5 funcionalidad carrito asociada al boton de cada elemnto del carrito.
-// el carrito debe mostrarse por console.log
+// cart section
 
 
 const cartItems = document.getElementById("cart-items");
