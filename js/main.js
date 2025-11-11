@@ -4,38 +4,14 @@ let url = "http://localhost:3500";
 
 //ejercicio 2. imprimir datos de obj alumno y mostrarlo por consola y html. 
 
-const alumno = {dni: 22222222, nombre: "jonatan", apellido: "quiroga"}
-// mi elemnto html (<span>) donde se inyectaran los datos del alumno. guardo mi obj en una variable para una facil manipulacion(como voy a hacer con muchas cosas en el codigo)
-const userInfo = document.getElementById("user-info-span") 
+// const alumno = {dni: 22222222, nombre: "jonatan", apellido: "quiroga"}
+// // mi elemnto html (<span>) donde se inyectaran los datos del alumno. guardo mi obj en una variable para una facil manipulacion(como voy a hacer con muchas cosas en el codigo)
+// const userInfo = document.getElementById("user-info-span") 
 
-function imprimirDatosAlumno() { //una simple funcion q printea lo q quiero concatenado con backticks
-    userInfo.textContent = `${alumno.nombre} ${alumno.apellido}`
-}
-
-//implementar una funcion q traiga data desde mi backend
-
-//const productList = document.getElementById("product-list")
-
-// async function obtenerProductos() {
-//     try {
-//         let response = await fetch(`${url}/api/productos`);
-        
-//         let data = await response.json()
-
-//         console.log(data);
-//         let productos = data.payload;
-//         console.log(productos);
-
-//         mostrarProductos(productos);
-
-//     } catch (error) {
-//         console.error("error obteniendo productos: ", error);
-//     }
+// function imprimirDatosAlumno() { 
+//     userInfo.textContent = `${alumno.nombre} ${alumno.apellido}`
 // }
-//     } catch (error) {
-//         console.error("error obteniendo productos: ", error);
-//     }
-// }
+
 
 function mostrarProductos(array) {
     let htmlProductos = "";
@@ -58,7 +34,7 @@ function mostrarProductos(array) {
 //funcion de filtro con input
 
 let todosLosProductos = [];
-const filterInput = document.getElementById("filter-input")
+const filterInput = document.getElementById("searchInput")
 const productList = document.getElementById("product-list");
 
 async function obtenerProductos() {
@@ -176,7 +152,7 @@ resetButton.addEventListener("click", resetCart);
 
 
 function init() {
-    imprimirDatosAlumno()
+    // imprimirDatosAlumno()
     obtenerProductos(); //cargo desde mi backend
     mostrarCarrito();
 }
