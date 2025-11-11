@@ -1,7 +1,6 @@
 let url = "http://localhost:3500";
 
 
-
 //ejercicio 2. imprimir datos de obj alumno y mostrarlo por consola y html. 
 
 // const alumno = {dni: 22222222, nombre: "jonatan", apellido: "quiroga"}
@@ -37,6 +36,7 @@ let todosLosProductos = [];
 const filterInput = document.getElementById("searchInput")
 const productList = document.getElementById("product-list");
 
+
 async function obtenerProductos() {
     try {
         let response = await fetch(`${url}/api/productos`);
@@ -50,6 +50,7 @@ async function obtenerProductos() {
         console.error("ocurrio un error: ", error);
     }
 }
+
 
 filterInput.addEventListener("input", () => {
     const text = filterInput.value.toLowerCase();
@@ -79,8 +80,7 @@ function mostrarProductos(array) {
 
 
 
-// ejercicio 5 funcionalidad carrito asociada al boton de cada elemnto del carrito.
-// el carrito debe mostrarse por console.log
+// cart section
 
 
 const cartItems = document.getElementById("cart-items");
@@ -117,6 +117,7 @@ function mostrarCarrito() {
     mostrarTotal(total);
     actualizarContadorCarrito();
 }
+
 
 
 function mostrarTotal(total) {
