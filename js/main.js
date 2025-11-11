@@ -1,6 +1,7 @@
 let url = "http://localhost:3500";
 
 
+
 //ejercicio 2. imprimir datos de obj alumno y mostrarlo por consola y html. 
 
 const alumno = {dni: 22222222, nombre: "jonatan", apellido: "quiroga"}
@@ -11,26 +12,30 @@ function imprimirDatosAlumno() { //una simple funcion q printea lo q quiero conc
     userInfo.textContent = `${alumno.nombre} ${alumno.apellido}`
 }
 
-//ejercicio 3. implementar una funcion q traiga data desde mi backend
+//implementar una funcion q traiga data desde mi backend
 
-const productList = document.getElementById("product-list")
+//const productList = document.getElementById("product-list")
 
-async function obtenerProductos() {
-    try {
-        let response = await fetch(`${url}/productos`);
+// async function obtenerProductos() {
+//     try {
+//         let response = await fetch(`${url}/api/productos`);
         
-        let data = await response.json()
+//         let data = await response.json()
 
-        console.log(data);
-        let productos = data.payload;
-        console.log(productos);
+//         console.log(data);
+//         let productos = data.payload;
+//         console.log(productos);
 
-        mostrarProductos(productos);
+//         mostrarProductos(productos);
 
-    } catch (error) {
-        console.error("error obteniendo productos: ", error);
-    }
-}
+//     } catch (error) {
+//         console.error("error obteniendo productos: ", error);
+//     }
+// }
+//     } catch (error) {
+//         console.error("error obteniendo productos: ", error);
+//     }
+// }
 
 function mostrarProductos(array) {
     let htmlProductos = "";
@@ -54,10 +59,11 @@ function mostrarProductos(array) {
 
 let todosLosProductos = [];
 const filterInput = document.getElementById("filter-input")
+const productList = document.getElementById("product-list");
 
 async function obtenerProductos() {
     try {
-        let response = await fetch(`${url}/productos`);
+        let response = await fetch(`${url}/api/productos`);
         let data = await response.json();
 
         todosLosProductos = data.payload
@@ -74,6 +80,27 @@ filterInput.addEventListener("input", () => {
     const filteredList = todosLosProductos.filter(producto => producto.nombre.toLowerCase().includes(text));  // filtro el array para incluir solo aquellas cuyo nombre contiene el texto buscado.
     mostrarProductos(filteredList) // aca renderizo mi array filtrado
 })
+
+
+function mostrarProductos(array) {
+    let htmlProductos = "";
+
+    array.forEach(prod => {
+        htmlProductos += `
+            <div class="card-products">
+                <img class="producto-img" src="${url}/uploads/${prod.imagen}" alt="${prod.nombre}">
+                <h3>${prod.nombre}</h3>
+                <p> id: ${prod.id}</p>
+                <p>${prod.precio}</p>
+                <button onclick="addToCart(${prod.id})">agregar al carrito</button>
+            </div>
+        `;
+    });
+
+    productList.innerHTML = htmlProductos;
+}
+
+
 
 
 // ejercicio 5 funcionalidad carrito asociada al boton de cada elemnto del carrito.
