@@ -18,10 +18,10 @@ getProductForm.addEventListener("submit", async (event) => {
     let idProd = data.idProd
     console.log(idProd);
 
-    console.log(`Realizando una peticion GET a la url ${url}/productos/${idProd}`);
+    console.log(`Realizando una peticion GET a la url ${url}/api/productos/${idProd}`);
 
     //envio en una peticion GET el id pegado a la url
-    let response = await fetch(`${url}/productos/${idProd}`);
+    let response = await fetch(`${url}/api/productos/${idProd}`);
 
     let datos = await response.json();
     console.log(datos)
@@ -103,7 +103,7 @@ async function actualizarProducto(event) {
     console.log(data); // Ya tenemos como objetos JS los datos de nuestro formulario anterior con las nuevas modificaciones
 
     try {
-        let response = await fetch(`${url}/productos`, {
+        let response = await fetch(`${url}/api/productos`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
