@@ -14,11 +14,6 @@ Estructura del repositorio
 - /src — código fuente (componentes, estilos, servicios)
 - README.md — este archivo
 
-Tecnologías (ejemplos)
-----------------------
-- HTML5, CSS3, JavaScript (ES6+)
-- Framework/librería: React | Vue | Angular (según elección)
-- Herramientas: npm / yarn, webpack / Vite
 
 Instalación y ejecución rápida
 -----------------------------
@@ -26,26 +21,3 @@ Instalación y ejecución rápida
 2. Instalar dependencias: npm install
 3. Ejecutar en modo desarrollo: npm start
 4. Abrir en el navegador: http://localhost:3000
-
-Integrantes
------------
-- Cristian Pérez — Frontend / Maquetación
-- Integrante 2 — Rol
-- Integrante 3 — Rol
-(Añadir o reemplazar nombres reales del grupo)
-
-Notas y tonterías
------------------
-- Si algo no funciona, prueba cerrar y volver a abrir el editor.
-- El READme contiene chistes malos y gifs innecesarios.
-- No apretar el botón rojo si no sabes qué hace.
-
-Aportes y mejoras
------------------
-- Mejorar accesibilidad (ARIA)
-- Tests unitarios para componentes clave
-- Optimización de performance y imágenes
-
-Licencia
---------
-MIT — añadir archivo LICENSE si corresponde.
